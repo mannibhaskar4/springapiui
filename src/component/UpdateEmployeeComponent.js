@@ -2,15 +2,13 @@ import React, {useState, useEffect} from 'react'
 import EmployeeService from '../services/EmployeeService'
 import {Link, useHistory,useParams } from 'react-router-dom';
 
-const AddEmployeeComponent = () => {
-    
+
+const UpdateEmployeeComponent = () => {
     
     const [name, setName] = useState('')
     const [dob, setDob] = useState('')
     const [doj, setDoj] = useState('')
     const [salary, setSalary] = useState('')
-    const [enterpriseid, setEnterpriseid] = useState('')
-    const [employeeid, setEmployeeid] = useState('')
     const history =useHistory();
     const id=  useParams();
     const {id1}=useParams();
@@ -19,14 +17,14 @@ const AddEmployeeComponent = () => {
     const saveEmployee = (e) => {
         e.preventDefault();
 
-        const employee = {name, dob, doj, salary, enterpriseid, employeeid}
+        const employee = {name, dob, doj, salary}
         const employeeUpdate = {name, dob, doj, salary} 
         console.log(employeeUpdate);
 
         if(id){
             // employeeid = id;
-            EmployeeService.updateEmployeeByEmployeeId(id,employeeUpdate).then((response)=>{
-                history.put('/api/employee');
+            EmployeeService.updateEmployeeByEmployeeId(id,employee).then((response)=>{
+                history.push('/api/employee');
 
             }).catch(error => {
                 console.log(error)
@@ -78,6 +76,9 @@ const AddEmployeeComponent = () => {
         }
     }
 
+    
+    
+    
     return (
         <div>
             {/* <h1>Add Employee component called</h1> */}
@@ -139,29 +140,7 @@ const AddEmployeeComponent = () => {
                                 </div>
 
                                 
-                                <div className="form-group mb-2">
-                                    <label className="form-label">Enterprise ID: </label>
-                                    <input 
-                                        type="text"
-                                        placeholder="Enter Enterprise Id"
-                                        name="enterpriseid"
-                                        className="form-control"
-                                        value={enterpriseid}
-                                        onChange= { (e) => setEnterpriseid(e.target.value) }
-                                        ></input>
-                                </div>
-
-                                <div className="form-group mb-2">
-                                    <label className="form-label">Employee Id:</label>
-                                    <input 
-                                        type="number"
-                                        placeholder="Enter Employee Id"
-                                        name="employeeid"
-                                        className="form-control"
-                                        value={employeeid}
-                                        onChange= { (e) => setEmployeeid(e.target.value) }
-                                        ></input>
-                                </div>
+                                
 
 
 
@@ -178,4 +157,4 @@ const AddEmployeeComponent = () => {
     )
 }
 
-export default AddEmployeeComponent
+export default UpdateEmployeeComponent

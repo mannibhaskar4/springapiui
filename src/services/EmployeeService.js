@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const EMPLOYEE_API_REST_URL = "http://localhost:8080/api/employee";
-const EMPLOYEE_API_REST_URL_CRT="http://localhost:8080/api/employee/create";
+// const EMPLOYEE_API_REST_URL_CRT="http://localhost:8080/api/employee/create";
 
 class EmployeeService {
     
@@ -13,8 +13,15 @@ class EmployeeService {
         return axios.post(EMPLOYEE_API_REST_URL,employee)
     }
 
-    getEmployeeById(employeeid){
-        return axios.get(EMPLOYEE_API_REST_URL + '/'+employeeid)
+    employeeByEmployeeid({employeeid}){
+        // console.log(employeeid)
+        return axios.get(EMPLOYEE_API_REST_URL + '/employeeByName/'+employeeid)
+    }
+
+
+    updateEmployeeByEmployeeId({employeeid}, employee){
+        console.log(employeeid)
+        return axios.put(EMPLOYEE_API_REST_URL+'/update/'+employeeid,employee)
     }
 
 
