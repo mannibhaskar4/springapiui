@@ -20,10 +20,14 @@ class EmployeeService {
 
 
     updateEmployeeByEmployeeId({employeeid}, employee){
-        console.log(employeeid)
+        // console.log(employeeid)
         return axios.put(EMPLOYEE_API_REST_URL+'/update/'+employeeid,employee)
     }
 
+
+    deleteEmployeeByEmployeeid(employeeid){
+        return axios.delete(EMPLOYEE_API_REST_URL+'/delete/'+employeeid)
+    }
 
 }
 

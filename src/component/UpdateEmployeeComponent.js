@@ -86,9 +86,7 @@ const UpdateEmployeeComponent = () => {
             <div className="container">
                 <div className="row">
                     <div className="card col-md-6 offset-md-3 offset-md-3">
-                        {
-                            title()
-                        }
+                    <h2 className='text-center'>Update Employee</h2>
                         <div className="card-body">
                             <form>
                                 <div className="form-group mb-2">

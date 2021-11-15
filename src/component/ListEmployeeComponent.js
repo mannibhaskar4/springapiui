@@ -7,6 +7,19 @@ export const ListEmployeeComponent = () => {
     const [employee, setEmployee] = useState([])
 
     useEffect(() => {
+        // EmployeeService.getAllEmployee().then((response)=>{
+        //     setEmployee(response.data)
+        //     console.log(response.data);
+
+        // }).catch(error => {
+        //     console.log(error);
+        // })
+        getAllEmployees()
+
+    }, [])
+
+
+    const getAllEmployees = () => {
         EmployeeService.getAllEmployee().then((response)=>{
             setEmployee(response.data)
             console.log(response.data);
@@ -14,7 +27,18 @@ export const ListEmployeeComponent = () => {
         }).catch(error => {
             console.log(error);
         })
-    }, [])
+    }
+
+
+    const deleteEmployee =  (id) => {
+        console.log(id)
+        EmployeeService.deleteEmployeeByEmployeeid(id).then((response) =>{
+            getAllEmployees();
+    
+           }).catch(error =>{
+               console.log(error);
+           })
+    }
 
     
     return (
@@ -47,6 +71,8 @@ export const ListEmployeeComponent = () => {
                                         {/* <td>{employee.doj}</td> */}
                                         <td>
                                             <Link className="btn btn-info" to={`/edit-employee/${employee.employeeid}`}>Update</Link>
+                                            <button className = "btn btn-danger" onClick ={() => deleteEmployee(employee.employeeid)}
+                                            style= {{marginTop:"10px"}}>Delete</button>
                                         </td>
 
                                     </tr>
