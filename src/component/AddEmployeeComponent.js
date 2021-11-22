@@ -23,15 +23,16 @@ const AddEmployeeComponent = () => {
         const employeeUpdate = {name, dob, doj, salary} 
         console.log(employeeUpdate);
 
-        if(id){
-            // employeeid = id;
-            EmployeeService.updateEmployeeByEmployeeId(id,employeeUpdate).then((response)=>{
-                history.put('/api/employee');
+        // if(id){
+        //     // employeeid = id;
+        //     console.log(id)
+        //     EmployeeService.updateEmployeeByEmployeeId(id,employeeUpdate).then((response)=>{
+        //         history.put('/api/employee');
 
-            }).catch(error => {
-                console.log(error)
-            })
-        }else{
+        //     }).catch(error => {
+        //         console.log(error)
+        //     })
+        // }else{
 
             EmployeeService.createEmployee(employee).then((response)  =>{
                 console.log(response.data);
@@ -41,7 +42,7 @@ const AddEmployeeComponent = () => {
             })
 
 
-        }
+        // }
         
 
 
@@ -55,28 +56,28 @@ const AddEmployeeComponent = () => {
     }
 
 
-    useEffect(() => {
-        EmployeeService.employeeByEmployeeid(id).then((response) =>{
-            // console.log(id);
-            console.log(response.data)
-            setName(response.data.name)
-            setDob(response.data.dob)
-            setDoj(response.data.doj)
-            setSalary(response.data.salary)
-        }).catch(error =>{
-            console.log(error)
-        })
-    }, [])
+    // useEffect(() => {
+    //     EmployeeService.employeeByEmployeeid(id).then((response) =>{
+    //         // console.log(id);
+    //         console.log(response.data)
+    //         setName(response.data.name)
+    //         setDob(response.data.dob)
+    //         setDoj(response.data.doj)
+    //         setSalary(response.data.salary)
+    //     }).catch(error =>{
+    //         console.log(error)
+    //     })
+    // }, [])
 
 
 
-    const title = () =>{
-        if({id}){
-            return <h2 className='text-center'>Update Employee</h2>
-        }else{
-            return <h2 className='text-center'>Add Employee</h2>
-        }
-    }
+    // const title = () =>{
+    //     if({id}){
+    //         return <h2 className='text-center'>Update Employee</h2>
+    //     }else{
+    //         return <h2 className='text-center'>Add Employee</h2>
+    //     }
+    // }
 
     return (
         <div>
@@ -85,9 +86,7 @@ const AddEmployeeComponent = () => {
             <div className="container">
                 <div className="row">
                     <div className="card col-md-6 offset-md-3 offset-md-3">
-                        {
-                            title()
-                        }
+                    <h2 className='text-center'>Add Employee</h2>
                         <div className="card-body">
                             <form>
                                 <div className="form-group mb-2">

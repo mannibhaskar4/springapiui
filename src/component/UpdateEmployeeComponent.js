@@ -68,13 +68,13 @@ const UpdateEmployeeComponent = () => {
 
 
 
-    const title = () =>{
-        if({id}){
-            return <h2 className='text-center'>Update Employee</h2>
-        }else{
-            return <h2 className='text-center'>Add Employee</h2>
-        }
-    }
+    // const title = () =>{
+    //     if({id}){
+    //         return <h2 className='text-center'>Update Employee</h2>
+    //     }else{
+    //         return <h2 className='text-center'>Add Employee</h2>
+    //     }
+    // }
 
     
     
