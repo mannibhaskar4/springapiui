@@ -12,8 +12,8 @@ const AddEmployeeComponent = () => {
     const [enterpriseid, setEnterpriseid] = useState('')
     const [employeeid, setEmployeeid] = useState('')
     const history =useHistory();
-    const id=  useParams();
-    const {id1}=useParams();
+    // const id=  useParams();
+    // const {id1}=useParams();
 //  console.log(useParams());
     // console.log(id)
     const saveEmployee = (e) => {
@@ -94,6 +94,7 @@ const AddEmployeeComponent = () => {
                                     <input 
                                         type="text"
                                         placeholder="Enter Name"
+                                        data-testid="name"
                                         name="name"
                                         className="form-control"
                                         value={name}
@@ -106,6 +107,7 @@ const AddEmployeeComponent = () => {
                                     <input 
                                         type="date"
                                         placeholder="Enter DOB"
+                                        data-testid="dob"
                                         name="dob"
                                         className="form-control"
                                         value={dob}
@@ -118,6 +120,7 @@ const AddEmployeeComponent = () => {
                                     <input 
                                         type="date"
                                         placeholder="Enter DOJ"
+                                        data-testid="doj"
                                         name="doj"
                                         className="form-control"
                                         value={doj}
@@ -130,6 +133,7 @@ const AddEmployeeComponent = () => {
                                     <input 
                                         type="number"
                                         placeholder="Enter Salary"
+                                        data-testid="salary"
                                         name="salary"
                                         className="form-control"
                                         value={salary}
@@ -143,6 +147,7 @@ const AddEmployeeComponent = () => {
                                     <input 
                                         type="text"
                                         placeholder="Enter Enterprise Id"
+                                        data-testid="enterpriseid"
                                         name="enterpriseid"
                                         className="form-control"
                                         value={enterpriseid}
@@ -155,6 +160,7 @@ const AddEmployeeComponent = () => {
                                     <input 
                                         type="number"
                                         placeholder="Enter Employee Id"
+                                        data-testid="employeeid"
                                         name="employeeid"
                                         className="form-control"
                                         value={employeeid}
